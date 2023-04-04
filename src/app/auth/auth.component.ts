@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AuthComponent {
 
+  isIframe = false;
+  loginDisplay = false;
+
+
+  ngOnInit() {
+    this.isIframe = window !== window.parent && !window.opener;
+  }
+
 }

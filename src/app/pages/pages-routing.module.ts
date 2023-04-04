@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanLoad } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { AuthGuard } from '../@core/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: PagesComponent,
+    component: PagesComponent,    
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
     children: [
       {
         path: 'verifigas',

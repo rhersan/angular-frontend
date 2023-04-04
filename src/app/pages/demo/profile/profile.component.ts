@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/@core/services/auth.service';
+import { AzureAdDemoService } from 'src/app/@core/services/azure-ad-demo.service';
+import { tap } from 'rxjs';
 
 const GRAPH_ENDPOINT = 'https://graph.microsoft.com/v1.0/me';
 
@@ -21,7 +24,10 @@ export interface IProfileType  {
 export class ProfileComponent {
  public profile!: IProfileType;
 
-  constructor(private http: HttpClient) { }
+ isUserLoggedIn: boolean = false;
+ 
+  constructor(private http: HttpClient,
+    private azureAdDemoServices:AzureAdDemoService,) { }
 
   ngOnInit() {
     this.getProfile();

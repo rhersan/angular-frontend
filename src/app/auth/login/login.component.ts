@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   constructor(@Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
     private broadcastService: MsalBroadcastService,
-    private authService: MsalService,
+    private maslBroadcastService: MsalService,
     private azureAdDemoService: AzureAdDemoService,
     private fb: FormBuilder,
     private router: Router,
@@ -59,8 +59,9 @@ export class LoginComponent implements OnInit {
       takeUntil(this._destroying$)
     )
     .subscribe((resp) => {
-      this.setLoginDisplay();
-      this.azureAdDemoService.isUserLoggedIn.next(this.loginDisplay)
+      this.setLoginDisplay();      
+      //this.azureAdDemoService.isUserLoggedIn.next(this.loginDisplay);
+      
     })
   }
 
@@ -76,21 +77,26 @@ export class LoginComponent implements OnInit {
 
   // Login
   loginMicrosoft() {
-    if (this.msalGuardConfig.authRequest){
-      this.authService.loginRedirect({...this.msalGuardConfig.authRequest} as RedirectRequest);
+    this.maslBroadcastService.loginPopup()
+      .subscribe({
+        next: (result) => {
+          console.log(result);
+          this.setLoginDisplay();
+          this.azureAdDemoService.isUserLoggedIn.next(this.loginDisplay);
+        },
+        error: (error) => console.log(error)
+      });
+    /*
+    if (this.msalGuardConfig.authRequest){      
+      this.maslBroadcastService.loginRedirect({...this.msalGuardConfig.authRequest} as RedirectRequest);
     } else {
-      this.authService.loginRedirect();
-    }
+      this.maslBroadcastService.loginRedirect();
+    }*/
   }
-/*
- logout() {
-    this.authService.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:4200'
-    });
-  }*/
+
 
   setLoginDisplay() {
-    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
+    this.loginDisplay = this.maslBroadcastService.instance.getAllAccounts().length > 0;
   }
   ngOnDestroy(): void {
     this._destroying$.next(undefined);

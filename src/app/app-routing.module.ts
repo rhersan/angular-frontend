@@ -21,7 +21,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' }
 ];
 
-
 const isIframe = window !== window.parent && !window.opener;
 
 @NgModule({

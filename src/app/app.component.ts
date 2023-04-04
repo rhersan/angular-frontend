@@ -11,7 +11,6 @@ import { AzureAdDemoService } from './@core/services/azure-ad-demo.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
   title = 'AUTH-VERIFIGAS';
   isIframe = false;
   loginDisplay = false;
