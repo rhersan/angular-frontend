@@ -9,14 +9,14 @@ const routes: Routes = [
     component: PagesComponent,
     children: [
       {
-        path: '',
+        path: 'verifigas',
         loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule)
       },
-      {
+      /*{
         path: '',
         redirectTo: '',
         pathMatch: 'full',
-      },
+      },*/
       {
         path: '**',
         component: NotFoundComponent,

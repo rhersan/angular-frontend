@@ -5,17 +5,23 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { ChangePasswordComponent } from './demo/change-password/change-password.component';
 import { ActivateAccountComponent } from './demo/activate-account/activate-account.component';
 import { PagesComponent } from './pages.component';
+import { ThemeModule } from '../@theme/theme.module';
+import { NbLayoutHeaderComponent, NbLayoutModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
 
 
 @NgModule({
   declarations: [
     ChangePasswordComponent,
     ActivateAccountComponent,
-    PagesComponent
+    PagesComponent,
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    NbLayoutModule,
+    NbSidebarModule,
+    NbMenuModule,
+    ThemeModule,
   ]
 })
 export class PagesModule { }

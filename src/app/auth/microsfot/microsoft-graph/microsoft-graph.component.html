@@ -1,0 +1,28 @@
+<!-- <div class="container">
+    <mat-toolbar color="primary">
+      <a class="title" href="/">VERIFIGAS</a>
+    
+      <div class="toolbar-spacer"></div>
+    
+      <a *ngIf="loginDisplay" mat-button [routerLink]="['profile']">Perfil</a>
+    
+      <button mat-raised-button  (click)="login()">
+        Iniciar con Microsoft   
+      </button>
+      <button mat-raised-button *ngIf="loginDisplay" (click)="logout()">Logout</button>
+    
+    </mat-toolbar>  
+  </div> 
+<br> -->
+
+<p>
+    <button type="submit"
+            mat-raised-button
+            class="btn-login"
+            *ngIf="!loginDisplay"
+            (click)="login()"
+            >
+    Continuar con Microsoft
+    </button>
+</p>
+

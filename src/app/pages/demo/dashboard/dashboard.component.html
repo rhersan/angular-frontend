@@ -1,20 +1,33 @@
 
+<!-- <nb-layout>
+    <nb-layout-header fixed>
+        VERIFIGAS
+    </nb-layout-header>
 
-<div *ngIf="loginDisplay">
-    <mat-card>
-        <mat-card-content>
-            <div class="center">
-                <h1 *ngIf="!loginDisplay" class="center" style="color:red">
-                    Inicia sesión para ver la información de tu perfil.
-                </h1>
+    <nb-sidebar>Sidebar Content</nb-sidebar>
+    
+    <nb-layout-column> -->
+      <!-- *ngIf="loginDisplay" -->
+      
+      
+        <div >
+            <mat-card>
+                <mat-card-content>
+                    <div class="center">
+                        <h1 *ngIf="loginDisplay" class="center" style="color:red">
+                            Inicia sesión para ver la información de tu perfil.
+                        </h1>
 
-                <h1 class="center" style="color:blue">
-                    Inicio de sesión exitosa
-                </h1>
-                <p class="center" >Solicite la información de su perfil haciendo clic en Perfil arriba.</p>
+                        <h1 class="center" style="color:blue">
+                            Inicio de sesión exitosa
+                        </h1>
+                        <p class="center">Solicite la información de su perfil haciendo clic en Perfil arriba.</p>
+                        <button mat-raised-button *ngIf="!loginDisplay" (click)="logout()">Logout</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
 
-            </div>
-        </mat-card-content>
-    </mat-card>
-
-</div>
+        </div>
+    <!-- </nb-layout-column>
+  </nb-layout> -->
+  

@@ -1,5 +1,6 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
 
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   NbActionsModule,
   NbLayoutModule,
@@ -13,7 +14,6 @@ import {
   NbIconModule,
   NbThemeModule,
 } from '@nebular/theme';
-
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 import { DEFAULT_THEME } from './styles/theme.default';
@@ -34,11 +34,15 @@ const NB_MODULES = [
   NbIconModule,
   NbEvaIconsModule,
 ];
-
+// const COMPONENTS = [
+  
+// ];
 @NgModule({
-  imports: [ ...NB_MODULES ],
-  exports: [...NB_MODULES],
-  declarations: [],
+  imports: [CommonModule,...NB_MODULES ],
+  exports: [CommonModule],
+  declarations: [
+    //...COMPONENTS
+  ],
 })
 export class ThemeModule { 
   static forRoot(): ModuleWithProviders<ThemeModule>{
@@ -47,9 +51,9 @@ export class ThemeModule {
       providers: [
         ...NbThemeModule.forRoot(
           {
-            name: 'default'
+            name: 'dark'
           },
-          [DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME]
+          [DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME],
         ).providers!,
       ],
     };

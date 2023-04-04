@@ -10,7 +10,7 @@ import { AzureAdDemoService } from './@core/services/azure-ad-demo.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
 
   title = 'AUTH-VERIFIGAS';
   isIframe = false;
@@ -23,6 +23,10 @@ export class AppComponent implements OnInit, OnDestroy {
   private azureAdDemoService: AzureAdDemoService) { }
 
   ngOnInit() {
+    // if(!this.loginDisplay){
+
+    /// }
+    /*
     this.isIframe = window !== window.parent && !window.opener;
 
     this.broadcastService.inProgress$
@@ -33,33 +37,33 @@ export class AppComponent implements OnInit, OnDestroy {
     .subscribe((resp) => {
       this.setLoginDisplay();
       this.azureAdDemoService.isUserLoggedIn.next(this.loginDisplay)
-    })
+    })*/
   }
 
-  login() {
+  /*login() {
     if (this.msalGuardConfig.authRequest){
       this.authService.loginRedirect({...this.msalGuardConfig.authRequest} as RedirectRequest);
     } else {
       this.authService.loginRedirect();
     }
-  }
+  }*/
 
-  logout() {
+ /* logout() {
     this.authService.logoutRedirect({
       postLogoutRedirectUri: 'http://localhost:4200'
     });
     // this.authService.logoutPopup({
     //   mainWindowRedirectUri: "/"
     // });
-  }
-
+  }*/
+/*
   setLoginDisplay() {
     this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
   }
   ngOnDestroy(): void {
     this._destroying$.next(undefined);
     this._destroying$.complete();
-  }
+  }*/
 
 
   /*

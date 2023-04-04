@@ -6,7 +6,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,8 @@ import {MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatToolbarModule,
     MatCardModule,
+    MatMenuModule,
+    
   ],
   exports: [
     MatButtonModule,
@@ -28,6 +30,7 @@ import {MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatToolbarModule,
     MatCardModule,
+    MatMenuModule,
   ],
   
 })

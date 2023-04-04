@@ -1,0 +1,53 @@
+.login-container{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.login-container mat-form-field+mat-form-field {
+  margin-left: 8px;
+}
+
+.login-container mat-form-field {
+  width: 300px;
+}
+
+.login-container .btn-login {
+  width: 300px;
+}
+.login-container form {
+  margin-bottom: 20px;
+}
+
+.login-container form>* {
+  margin: 12px 0;
+}
+
+.login-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+.login-form-fields {
+  display: flex;
+  align-items: flex-start;
+}
+
+.login-btn {
+  width: 100px !important;
+  min-width: unset !important;
+}
+
+
+.example-card {
+  max-width: 400px;
+  margin-top: 10px;
+}
+
+.center-content {
+    margin-top: 100px;
+    text-align: -webkit-center;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}

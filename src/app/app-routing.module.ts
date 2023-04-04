@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './pages/demo/profile/profile.component';
-import { DashboardComponent } from './pages/demo/dashboard/dashboard.component';
 import { MsalGuard } from '@azure/msal-angular';
 import { BrowserUtils } from '@azure/msal-browser';
 
@@ -12,20 +11,14 @@ const routes: Routes = [
     canActivate: [MsalGuard]
   },
   {
-    path: '',
-    component: DashboardComponent
-  }
-  /*{
-     path: 'auth', 
+    path: 'auth', 
     loadChildren: ()=> import('./auth/auth.module').then(m => m.AuthModule)
-  },*/
-  /*{
+  },
+  {
     path: 'pages',
     loadChildren: ()=> import('./pages/pages.module').then(m => m.PagesModule)
-  },*/
-  
-  //{ path: '', redirectTo: 'auth/login', pathMatch: 'full' },
-  //{ path: '**', redirectTo: 'auth/login' }
+  },
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full' }
 ];
 
 
