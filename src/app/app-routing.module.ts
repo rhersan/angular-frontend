@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './pages/demo/profile/profile.component';
 import { MsalGuard } from '@azure/msal-angular';
 import { BrowserUtils } from '@azure/msal-browser';
+import { DashboardComponent } from './pages/demo/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -10,15 +11,19 @@ const routes: Routes = [
     path: 'profile', component: ProfileComponent,
     canActivate: [MsalGuard]
   },
-  {
+  /*{
     path: 'auth', 
     loadChildren: ()=> import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'pages',
     loadChildren: ()=> import('./pages/pages.module').then(m => m.PagesModule)
-  },
-  { path: '', redirectTo: 'auth/login', pathMatch: 'full' }
+  },*/
+  {
+    path: '',
+    component: DashboardComponent
+  }
+  //{ path: '', redirectTo: 'auth/login', pathMatch: 'full' }
 ];
 
 const isIframe = window !== window.parent && !window.opener;

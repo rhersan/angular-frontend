@@ -41,7 +41,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       auth: {
         clientId: 'bf42ebb2-ba3f-4dd5-8c0f-b714022ddd3f', // Application (client) ID from the app registration
         authority: 'https://login.microsoftonline.com/102d3653-c8a4-4711-a5a3-7dc0ab963878', // The Azure cloud instance and the app's sign-in audience (tenant ID, common, organizations, or consumers)
-        redirectUri: 'http://localhost:4200'// This is your redirect URI
+        redirectUri: 'http://localhost:4200/'// This is your redirect URI
       },
       cache: {
         cacheLocation: 'localStorage',

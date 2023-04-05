@@ -42,14 +42,8 @@ export class LoginComponent implements OnInit {
   }
   
   ngOnInit() {
-    /*if(this.loginDisplay){
-      this.router.navigateByUrl('/pages/verifigas/dashboard');
-    }*/
-    //this.isIframe = window !== window.parent && !window.opener;
-    this.loginForm = this.fb.group({
-      email: ['r@dev.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required, Validators.minLength(6)]]
-    });
+
+    
 
     this.isIframe = window !== window.parent && !window.opener;
 
@@ -60,18 +54,20 @@ export class LoginComponent implements OnInit {
     )
     .subscribe((resp) => {
       this.setLoginDisplay();      
-      //this.azureAdDemoService.isUserLoggedIn.next(this.loginDisplay);
+      this.azureAdDemoService.isUserLoggedIn.next(this.loginDisplay);
       
-    })
+    });
+
+    this.loginForm = this.fb.group({
+      email: ['r@dev.com', [Validators.required, Validators.email]],
+      password: ['123456', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
   /// Login con Base de datos
   loginDB(){
     const {email, password } = this.loginForm.value;
-    console.log(email, password);
-    this.ngZone.run( () => {
-      this.router.navigateByUrl('/pages/verifigas/dashboard');
-    });    
+    console.log(email, password); 
   }
 
 

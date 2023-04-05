@@ -46,8 +46,7 @@ export class AuthGuard implements CanActivate, CanLoad, OnInit {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot){  
-      console.log('canActive');
-      return this.azureAdDemoServices.isUserLoggedIn
+      const resp = this.azureAdDemoServices.isUserLoggedIn
       .pipe(
         tap(isUserLoggedIn => {
           if( !isUserLoggedIn ){
@@ -55,6 +54,7 @@ export class AuthGuard implements CanActivate, CanLoad, OnInit {
           }
         })
       );
+      return true;
   }
 
 }

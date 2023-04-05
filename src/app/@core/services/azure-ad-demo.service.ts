@@ -10,7 +10,9 @@ export class AzureAdDemoService implements OnInit {
   isUserLoggedIn: Subject<boolean> = new Subject<boolean>();
 
   constructor() { }
+  
   ngOnInit(): void {
+
   }
   
 }
